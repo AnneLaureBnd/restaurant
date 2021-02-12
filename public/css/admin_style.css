@@ -1,0 +1,161 @@
+/* ===================================================
+======================= TOOLS =======================
+================================================== */
+
+:root {
+    --whiteColor: rgba(255, 255, 255, 1); /*color : white*/
+    --color2: rgb(189, 140, 110); /*color : link*/
+    --color3: rgb(243, 211, 172); /*color : hover*/
+    --color4: rgb(242, 234, 225); /*color : input, menu*/
+    --colorError: rgb(190, 0, 0); /*color : red, for errors*/
+    --colorSuccess: rgb(10, 155, 0); /*color : green, for success*/
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* ===================================================
+===================== GENERALITY =====================
+================================================== */
+
+body {
+    -ms-overflow-style: scrollbar;
+    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--whiteColor);
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: 1.6rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2 {
+    line-height: initial;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(189, 140, 110);
+    color: var(--color2);
+    transition: all 0.7s;
+}
+
+a:hover {
+    color: rgb(243, 211, 172);
+    color: var(--color3);
+}
+
+button {
+    background-color: rgb(189, 140, 110);
+    background-color: var(--color2);
+    color: rgba(255, 255, 255, 1);
+    color: var(--whiteColor);
+    border-radius: 10px;
+    transition: all 0.7s;
+}
+
+button a {
+    color: rgba(255, 255, 255, 1);
+    color: var(--whiteColor);
+}
+
+button:hover {
+    background-color: rgb(242, 234, 225);
+    background-color: var(--color4);
+}
+
+button:hover a {
+    color: rgb(243, 211, 172);
+    color: var(--color3);
+}
+
+input, select, button {
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+
+
+/* ==================== MAIN =====================
+================================================== */
+
+
+.subscribers_email, .await_reservations, .archive_reservations {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* =================== ERROR =================== */
+
+.error_input, .error_form {
+    border: 1px solid rgb(190, 0, 0);
+    border: 1px solid var(--colorError);
+}
+
+.incorrect_email {
+    color : rgb(190, 0, 0);
+    color: var(--colorError);
+}
+
+.error {
+    color: rgb(190, 0, 0);
+    color: var(--colorError);
+}
+
+
+/* =================== SUCCESS =================== */
+
+.success {
+    color: rgb(10, 155, 0);
+    color : var(--colorSuccess);
+}
+
+/* =================== ARCHIVE RESERVATION TABLE =================== */
+
+.new_archive_row {
+    display: flex;
+    width: 770px;
+}
+
+.new_archive_row td {
+    justify-content: center;
+}
+
+.new_archive_row td:nth-of-type(1) {
+    width: 84px;
+}
+
+.new_archive_row td:nth-of-type(2) {
+    width: 159px;
+}
+
+.new_archive_row td:nth-of-type(3) {
+    width: 85px;
+}
+
+.new_archive_row td:nth-of-type(4) {
+    width: 49px;
+}
+
+.new_archive_row td:nth-of-type(5) {
+    width: 100px;
+}
+
+.new_archive_row td:nth-of-type(6) {
+    width: 223px;
+}
+
+.new_archive_row td:nth-of-type(7) {
+    width: 57px;
+}
