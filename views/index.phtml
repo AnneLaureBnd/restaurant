@@ -1,0 +1,40 @@
+<!---------- SLIDER ---------->
+<div class="slider">
+    <!--<ul class="slides">
+    <//?php foreach($sliders as $slider): ?>
+        <li class="novisible">
+          <img src="<//?= $slider['slider_img'] ?>" alt="<//?= $slider['slider_title'] ?>">
+        </li>
+    <//?php endforeach; ?>
+  </ul>-->
+    <ul class="slides">
+        <li class="novisible">
+            <img src="public/img/pictures/slider/glasses.jpg" alt="Verres sur table de restaurant">
+        </li>
+        <li class="novisible">
+            <img src="public/img/pictures/slider/outside.jpg" alt="Facade extérieure du restaurant">
+        </li>
+    </ul>
+</div>
+<!---------- WELCOME TEXT ---------->
+<section class="home_text">
+    <h1>Maître Restaurateur</h1>
+    <p>Le Petit Saint Thomas, c'est tout d'abord une équipe, portée par Magali et David Bourmaud, qui a à coeur de promouvoir une cuisine mélant savoir-faire et créativité. C'est aussi toute une démarche qualitative et éco-responsable qui évolue au gré des saisons. Les produits sont majoritairement issus d'une agriculture biologique et fournis par des producteurs locaux.</p>
+</section>
+<!---------- NEWSLETTER ---------->
+<section class="newsletter_subscription">
+    <h2>Restez informés</h2>
+    <p>Inscrivez-vous à notre newsletter afin de recevoir nos nouveaux menus, événements, actualités, offres ponctuelles...</p>
+    <!--if the user hasn't subscribed yet-->
+    <p class="incorrect_email" id="incorrect_email"></p>
+    <form id="newsletter_form">
+        <input type="email" name="subscriber_email" id="subscriber_email" class="subscriber_email"/>
+        <button type="button" id="submit_newsletter_form" class="submit_newsletter_form">Envoyer</button>
+    </form>
+    <!--when the user has subscribed-->
+    <p class="valid_newsletter_form" id="valid_newsletter_form"></p>
+</section>
+
+<script src="public/js/slider.js"></script>
+<script src="public/js/newsletter/submitNewsletterForm.js"></script>
+<script src="public/js/newsletter/main.js"></script>

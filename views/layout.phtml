@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Restaurant Le Petit Saint Thomas</title>
+        <script src="https://kit.fontawesome.com/4ead355834.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="public/img/favicon/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="public/css/normalize.css" type="text/css" />
+        <link rel="stylesheet" href="public/css/style.css" type="text/css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="head_toolbar">
+                <p>
+                    <a href="#" id="menu_button" class="menu_button">menu</a>
+                </p>
+                <a href="home">
+                    <img src="public/img/docs/logo.png" alt="Logo du Restaurant Le Petit Saint Thomas">
+                </a>
+                <p>
+                    <a href="#" id="reserve_button" class="reserve_button">réserver une table</a>
+                </p>
+            </div>
+        </header>
+        <aside class="header_menu" id="header_menu">
+            <p>
+                <a href="#" class="menu_cross" id="menu_cross" >
+                    <i class="fas fa-times"></i>
+                </a>
+            </p>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="home" <?php if(basename($_SERVER['REQUEST_URI']) =='home' || basename($_SERVER['REQUEST_URI']) == "index.php") { echo 'class="active"'; }  ?> >
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="take" <?php if(basename($_SERVER['REQUEST_URI']) =='take' ) { echo 'class="active"'; }  ?> >
+                            Menus à emporter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gift" <?php if(basename($_SERVER['REQUEST_URI']) =='gift' ) { echo 'class="active"'; }  ?> >
+                            Coffrets cadeaux
+                        </a>
+                    </li>
+                    <li>
+                        <a href="menu" <?php if(basename($_SERVER['REQUEST_URI']) =='menu' ) { echo 'class="active"'; }  ?> >
+                            Menus
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pictures" <?php if(basename($_SERVER['REQUEST_URI']) =='pictures' ) { echo 'class="active"'; }  ?> >
+                            Photos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about" <?php if(basename($_SERVER['REQUEST_URI']) =='about' ) { echo 'class="active"'; }  ?> >
+                            A propos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:restolesaintthomas@gmail.com">Nous écrire</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <aside class="header_reserve" id="header_reserve">
+            <p>
+                <a href="#" class="reserve_cross" id="reserve_cross">
+                    <i class="fas fa-times"></i>
+                </a>
+            </p>
+            <p>Réserver une table</p>
+            <form action="index.php?page=submitReserve" method="post">
+                <fieldset>
+                    <label for="name">Nom</label>
+                    <input type="text" name="name" placeholder="Nom" required />
+                </fieldset>
+                <fieldset>
+                    <label for="number">Nombre de couverts</label>
+                    <input type="number" name="number" required />
+                </fieldset>
+                <fieldset>
+                    <label for="date">Date</label>
+                    <input type="date" name="date" required/>
+                    <label for="time">Heure</label>
+                    <select name="time">
+                        <optgroup label="Midi">
+                            <option value="12:30" selected>12:30</option>
+                            <option value="12:45">12:45</option>
+                            <option value="13:00">13:00</option>
+                            <option value="13:15">13:15</option>
+                            <option value="13:30">13:30</option>
+                        </optgroup>
+                        <optgroup label="Soir">
+                            <option value="19:30">19:30</option>
+                            <option value="19:45">19:45</option>
+                            <option value="20:00">19:30</option>
+                            <option value="20:15">20:15</option>
+                            <option value="20:30">20:30</option>
+                            <option value="20:45">20:45</option>
+                            <option value="21:00">21:00</option>
+                            <option value="21:15">21:15</option>
+                            <option value="21:30">21:30</option>
+                        </optgroup>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="tel">Téléphone</label>
+                    <input type="tel" name="tel" required />
+                </fieldset>
+                <fieldset>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required />
+                </fieldset>
+                <p>Nous vous confirmerons votre réservation par email.</p>
+                <fieldset>
+                    <button type="submit" id="submit_reservation">Envoyer</button>
+                </fieldset>
+            </form>
+        </aside>
+        <main class="container">
+            <?php include $template; ?>
+        </main>
+        <footer class="footer">
+            <section class="infos">
+                <adress class="adress">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </p>
+                    <p>25, rue de Lattre de Tassigny</p>
+                    <p>85710 La Garnache</p>
+                </adress>
+                <div class="phone">
+                    <p>
+                        <i class="fas fa-mobile-alt"></i>
+                    </p>
+                    <p>
+                        <a href="tel:+33251490599">+33.2.51.49.05.99</a>
+                    </p>
+                </div>
+                <div class="email">
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                    </p>
+                    <p>
+                        <a href="mailto:restolesaintthomas@gmail.com">restolesaintthomas@gmail.com</a>
+                    </p>
+                </div>
+            </section>
+            <section class="social_medias">
+                <p>Retrouvez-nous sur :</p>
+                <div class="social_medias_icones">
+    				<p>
+    				    <a href="https://www.facebook.com/LePetitSaintThomas">
+    				        <i class="fab fa-facebook-f"></i>
+    				    </a>
+    				</p>
+    				<p>
+    				    <a href="https://www.instagram.com/lepetitsaintthomas/">
+    				        <i class="fab fa-instagram"></i>
+    				    </a>
+    				</p>
+    				<p>
+    				    <a href="https://www.tripadvisor.fr/Restaurant_Review-g2260917-d2232696-Reviews-Le_petit_Saint_Thomas-La_Garnache_Vendee_Pays_de_la_Loire.html">
+    				        <i class="fab fa-tripadvisor"></i>
+    				    </a>
+    				</p>
+    			</div>
+            </section>
+            <section class="restaurants_masters">
+                <p>
+                    <img src="public/img/docs/logo_maitres_restaurateurs.png" alt="logo maitres restaurateurs">
+                </p>
+            </section>
+            <section class="more_infos">
+                <p>&copy;2001-2020</p> 
+                <p>
+                    <a href="index.php?page=home">https://www.restaurant-petit-st-thomas.com</a>
+                </p> 
+                <p>All right reserved.</p>
+                <p>
+                    <a href="#">Politique de confidentialité</a>
+                </p>
+                <p>
+                    <a href="#">Conditions générales de ventes</a>
+                </p>
+            </section>
+        </footer>
+        <script type="text/javascript" src="public/js/menu.js"></script>
+        <script type="text/javascript" src="public/js/reservation/alert.js"></script>
+        <script type="text/javascript" src="public/js/reservation/main.js" defer></script>
+    </body>
+</html>
