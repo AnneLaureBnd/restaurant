@@ -1,0 +1,120 @@
+<?php if(!isset($_SESSION['admin_email'])): ?>
+<form class="connection" id="connection_form">
+    <p><i class="fas fa-user"> </i></p>
+    
+    <label for="email">Email</label>
+    <p id="incorrect_email" class="incorrect_email"></p>
+    <input type="email" id="email" name="email" class="email">
+    
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" class="password">
+    
+    <button type="button" id="submit_connection" class="submit_connection">Se connecter</button>
+</form>
+
+<script src="public/js/admin/connection.js"></script>
+<script src="public/js/admin/main.js"></script>
+
+<?php else: ?>
+
+<button class="offline"><a href="index.php?page=disconnect">Se déconnecter</a></button>
+
+<h1>Espace Administrateur</h1>
+
+<h2>Les personnes inscrites à la newsletter</h2>
+
+<p class="success" id="success_delete_user"></p>
+
+<p class ="error" id="error_delete_user"></p>
+
+<table class="subscribers_email">
+    <tr>
+        <th>Email</th>
+        <th>Supprimer</th>
+    </tr>
+    <?php foreach($subscribers as $subscriber): ?>
+    <tr data-email="<?php echo $subscriber['subscriber_email'] ?>">
+        <td><?= $subscriber['subscriber_email'] ?></td>
+        <td>
+            <button class="delete_subscriber" type="button" data-email="<?php echo $subscriber['subscriber_email'] ?>">
+                <i class="fas fa-trash" data-email="<?php echo $subscriber['subscriber_email'] ?>"></i>
+            </button>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+<h2>Les réservations en attente</h2>
+
+<p class="success" id="success_archive_reservation"></p>
+
+<p class ="error" id="error_archive_reservation"></p>
+
+<table class="await_reservations">
+    <tr>
+        <th>Nom</th>
+        <th>Nombre de couverts</th>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>Valider</th>
+    </tr>
+    <?php foreach($awaitReservations as $awaitReservation): ?>
+    <tr data-id="<?php echo $awaitReservation['id_reservation'] ?>">
+        <td><?= $awaitReservation['reservation_name'] ?></td>
+        <td><?= $awaitReservation['reservation_cutlery'] ?></td>
+        <td><?= $awaitReservation['reservation_date'] ?></td>
+        <td><?= $awaitReservation['reservation_time'] ?></td>
+        <td><?= $awaitReservation['reservation_phone'] ?></td>
+        <td><?= $awaitReservation['reservation_email'] ?></td>
+        <td>
+            <button class="archive_reservation" type="button" data-id="<?php echo $awaitReservation['id_reservation'] ?>">
+                <i class="fas fa-check" data-id="<?php echo $awaitReservation['id_reservation'] ?>"></i>
+            </button>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+<h2>Les réservations archivées</h2>
+
+<p class="success" id="success_delete_reservation"></p>
+
+<p class ="error" id="error_delete_reservation"></p>
+
+<table class="archive_reservations" id="archive_reservations">
+    <tr>
+        <th>Nom</th>
+        <th>Nombre de couverts</th>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>Valider</th>
+    </tr>
+    <?php foreach($validateReservations as $validateReservation): ?>
+    <tr data-ok="<?php echo $validateReservation['id_reservation'] ?>">
+        <td><?= $validateReservation['reservation_name'] ?></td>
+        <td><?= $validateReservation['reservation_cutlery'] ?></td>
+        <td><?= $validateReservation['reservation_date'] ?></td>
+        <td><?= $validateReservation['reservation_time'] ?></td>
+        <td><?= $validateReservation['reservation_phone'] ?></td>
+        <td><?= $validateReservation['reservation_email'] ?></td>
+        <td>
+            <button class="delete_reservation" type="button" data-ok="<?php echo $validateReservation['id_reservation'] ?>">
+                <i class="fas fa-trash" data-ok="<?php echo $validateReservation['id_reservation'] ?>"></i>
+            </button>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+</div>
+<script src="public/js/deleteSubscriber/delete.js"></script>
+<script src="public/js/deleteSubscriber/main.js"></script>
+<script src="public/js/reservation/deleteReservation/delete.js"></script>
+<script src="public/js/reservation/deleteReservation/main.js"></script>
+<script src="public/js/reservation/archiveReservation/archive.js"></script>
+<script src="public/js/reservation/archiveReservation/main.js"></script>
+
+<?php endif; ?>
